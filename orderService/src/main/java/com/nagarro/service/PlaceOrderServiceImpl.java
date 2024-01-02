@@ -19,7 +19,7 @@ public class PlaceOrderServiceImpl extends PlaceOrderImplBase {
 			io.grpc.stub.StreamObserver<com.nagarro.proto.OrderService.OrderReply> responseObserver) {
 
 		String notification= "Order created with id :"+request.getId()+".";
-		OrderReply orderReply = OrderService.OrderReply.newBuilder().setMessage("id received for update").build();
+		OrderReply orderReply = OrderService.OrderReply.newBuilder().setMessage("Order created successfully").build();
 		responseObserver.onNext(orderReply);
 		responseObserver.onCompleted();
 		sendNotification(notification);

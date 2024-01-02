@@ -32,8 +32,8 @@ public class NotificationClient1 {
 		    };
 		    channel.basicConsume(queue, true, deliverCallback, consumerTag -> { });
 		} catch (IOException | TimeoutException e) {
-			System.out.println("Notification cannot be received on client 1 :");
-			e.printStackTrace();
+			System.out.println("Notification cannot be received on client 1 :"+e.getMessage());
+			
 		}
 	    
 	    

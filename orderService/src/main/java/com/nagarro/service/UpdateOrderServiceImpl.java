@@ -33,7 +33,6 @@ public class UpdateOrderServiceImpl extends UpdateOrderImplBase {
 		factory.setPort(8081);
 
 		try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
-			// fanout(msg, channel);
 			direct(msg, channel);
 
 		} catch (IOException | TimeoutException e) {
@@ -50,12 +49,5 @@ public class UpdateOrderServiceImpl extends UpdateOrderImplBase {
 		System.out.println(" [x] Sent direct -> " + msg + "'");
 	}
 
-	private static void fanout(String msg, Channel channel) throws IOException, UnsupportedEncodingException {
-		channel.exchangeDeclare(EXCHANGE_CREATE_ORDER, "fanout");
-
-		channel.basicPublish(EXCHANGE_CREATE_ORDER, "", null, msg.getBytes("UTF-8"));
-
-		System.out.println(" [x] Sent fanout -> '" + msg + "'");
-	}
 
 }

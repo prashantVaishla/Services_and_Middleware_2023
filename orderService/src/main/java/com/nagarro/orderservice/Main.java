@@ -19,7 +19,7 @@ public class Main {
 			System.out.println("gRPC server started at "+server.getPort());
 			server.awaitTermination();
 		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
+			System.out.println("terminating .."+ e.getMessage());
 		}
 
 	}
