@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_package = "com.nagarro.proto";
+service PlaceOrder {
+  rpc placeOrder (OrderRequest) returns (OrderReply) {}
+}
+service UpdateOrder {
+  rpc updateOrder (OrderRequest) returns (OrderReply) {}
+}
+
+message OrderRequest {
+  string id = 1;
+  string category = 2;
+  string price = 3;
+  string date = 4;
+}
+message OrderReply {
+  string message = 1;
+}
